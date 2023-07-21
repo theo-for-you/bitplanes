@@ -51,6 +51,7 @@ drop.ondrop = (e) => {
 
 function after_draw() {
     loading(true)
+    document.getElementById("planes").innerHTML = ""
     setTimeout(after_draw_2, 1000)
 }
 
