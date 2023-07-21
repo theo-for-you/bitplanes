@@ -1,5 +1,5 @@
 # Bitplanes
-Open a local webpage
+Open this local webpage
 
 Drop a picture and get its bitplanes in rgb
 
