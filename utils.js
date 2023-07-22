@@ -4,28 +4,22 @@
 
 function add_alfa(data) {
 
-    let res = [];
-
     for (let i = 0; i < data.length; i++) {
-        res.push(data[i]);
-        if ((i + 1) % 3 == 0) res.push(255);
+        if ((i + 1) % 4 == 0) data[i] = 255;
     }
-
-
-    return res
-
-
-}
-
-function remove_alfa(data) {
-    data = data.filter((_, index) => {
-        if ((index + 1) % 4 == 0) return false;
-
-        return true;
-    })
 
     return data
 }
+
+// function remove_alfa(data) {
+//     data = data.filter((_, index) => {
+//         if ((index + 1) % 4 == 0) return false;
+
+//         return true;
+//     })
+
+//     return data
+// }
 
 function draw(canvas, file) {
     const img = new Image()
@@ -45,9 +39,9 @@ function draw(canvas, file) {
 }
 
 function get_data(canvas) {
-    const context = canvas.getContext("2d");
+    let context = canvas.getContext("2d");
     let data = context.getImageData(0, 0, canvas.width, canvas.height).data;
-    data = remove_alfa(data)
+    // data = remove_alfa(data)
 
     return data
 }
@@ -55,7 +49,7 @@ function get_data(canvas) {
 function put_data(canvas, new_data) {
     new_data = add_alfa(new_data)
 
-    const context = canvas.getContext("2d");
+    let context = canvas.getContext("2d");
     let data = context.getImageData(0, 0, canvas.width, canvas.height);
     data.data.set(new_data)
 
